@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Трафик на РФ</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Arial,sans-serif;
+      background:#05070d;
+      color:white;
+      padding:18px;
+    }
+    .splash{
+      position:fixed;inset:0;
+      background:radial-gradient(circle,#0b2b66,#05070d 65%);
+      display:flex;flex-direction:column;
+      justify-content:center;align-items:center;
+      z-index:10;
+      transition:.6s;
+    }
+    .logo{
+      width:210px;height:210px;
+      border-radius:50%;
+      border:4px solid #1688ff;
+      display:flex;flex-direction:column;
+      justify-content:center;align-items:center;
+      box-shadow:0 0 40px #1688ff;
+      background:#020817;
+      text-align:center;
+      font-weight:900;
+    }
+    .logo span:first-child{font-size:28px}
+    .logo span:nth-child(2){font-size:36px;color:#1688ff}
+    .logo small{margin-top:10px;letter-spacing:6px}
+    .loader{
+      margin-top:35px;
+      width:220px;height:6px;
+      background:#111827;
+      border-radius:50px;
+      overflow:hidden;
+    }
+    .loader div{
+      width:0;height:100%;
+      background:#1688ff;
+      animation:load 2s forwards;
+    }
+    @keyframes load{to{width:100%}}
+    .hidden{opacity:0;pointer-events:none}
+    .app{max-width:460px;margin:auto}
+    .hero{
+      padding:26px;
+      border:1px solid #163b75;
+      border-radius:26px;
+      background:linear-gradient(145deg,#07111f,#0b1c36);
+      box-shadow:0 0 35px rgba(22,136,255,.25);
+      margin-bottom:18px;
+    }
+    h1{font-size:34px;line-height:1.05;margin-bottom:12px}
+    h1 b{color:#1688ff}
+    p{color:#b8c4d8;line-height:1.45}
+    .grid{display:grid;gap:12px}
+    .card{
+      background:#0b1220;
+      border:1px solid #1e3a5f;
+      border-radius:20px;
+      padding:18px;
+    }
+    .card h3{margin-bottom:8px;color:#fff}
+    .btn{
+      width:100%;
+      padding:16px;
+      border:none;
+      border-radius:18px;
+      margin-top:12px;
+      background:#1688ff;
+      color:white;
+      font-size:16px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .section{display:none}
+    .section.active{display:block}
+    .menu button{
+      background:#0b1220;
+      border:1px solid #1e3a5f;
+      color:white;
+      padding:16px;
+      border-radius:18px;
+      font-size:16px;
+      text-align:left;
+      cursor:pointer;
+    }
+    input,textarea{
+      width:100%;
+      margin-top:10px;
+      padding:15px;
+      border-radius:14px;
+      border:1px solid #1e3a5f;
+      background:#07111f;
+      color:white;
+      font-size:15px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="splash" id="splash">
+  <div class="logo">
+    <span>ТРАФИК</span>
+    <span>НА РФ</span>
+    <small>VK ADS</small>
+  </div>
+  <div class="loader"><div></div></div>
+  <p style="margin-top:18px;">Загрузка системы...</p>
+</div>
+
+<div class="app">
+  <div id="home" class="section active">
+    <div class="hero">
+      <h1>ТРАФИК <b>НА РФ</b></h1>
+      <p>VK / TG / серые и сложные ниши. Кейсы, пруфы, условия и заявка на запуск внутри одного приложения.</p>
+    </div>
+
+    <div class="grid menu">
+      <button onclick="openSection('cases')">📊 Кейсы по нишам</button>
+      <button onclick="openSection('proofs')">🧾 Пруфы и результаты</button>
+      <button onclick="openSection('work')">⚙️ Как мы работаем</button>
+      <button onclick="openSection('terms')">💰 Условия</button>
+      <button onclick="openSection('faq')">❓ FAQ</button>
+      <button onclick="openSection('lead')">🚀 Оставить заявку</button>
+    </div>
+  </div>
+
+  <div id="cases" class="section">
+    <div class="card"><h3>Crypto / Invest</h3><p>Тесты связок, заявки, прогрев, лиды под РФ.</p></div>
+    <div class="card"><h3>Gambling / Betting</h3><p>Серые подходы, креативы, обход модерации.</p></div>
+    <div class="card"><h3>Telegram-проекты</h3><p>Трафик на каналы, боты, воронки и подписки.</p></div>
+    <button class="btn" onclick="openSection('home')">Назад</button>
+  </div>
+
+  <div id="proofs" class="section">
+    <div class="card"><h3>📈 Результаты</h3><p>5000+ лидов, опыт 5+ лет, запуск под сложные ниши.</p></div>
+    <div class="card"><h3>🧾 Пруфы</h3><p>Скрины кабинетов, заявки, переписки и статистика добавляются сюда.</p></div>
+    <button class="btn" onclick="openSection('home')">Назад</button>
+  </div>
+
+  <div id="work" class="section">
+    <div class="card"><h3>1. Анализ</h3><p>Смотрим нишу, воронку, оффер и ограничения.</p></div>
+    <div class="card"><h3>2. Подготовка</h3><p>Креативы, связка, прокладка, гипотезы.</p></div>
+    <div class="card"><h3>3. Запуск</h3><p>Тестируем, считаем CPL и масштабируем рабочее.</p></div>
+    <button class="btn" onclick="openSection('home')">Назад</button>
+  </div>
+
+  <div id="terms" class="section">
+    <div class="card">
+      <h3>Тестовый запуск</h3>
+      <p>Срок: 5–7 дней<br>Бюджет: от $300<br>Подготовка: включена<br>Креативы: включены</p>
+    </div>
+    <button class="btn" onclick="openSection('home')">Назад</button>
+  </div>
+
+  <div id="faq" class="section">
+    <div class="card"><h3>Какие ниши берете?</h3><p>VK / TG / серые проекты / сложные офферы.</p></div>
+    <div class="card"><h3>Можно без сайта?</h3><p>Да, можно через лид-форму, Telegram или простую прокладку.</p></div>
+    <div class="card"><h3>Как быстро запуск?</h3><p>Обычно подготовка и старт занимают 1–3 дня.</p></div>
+    <button class="btn" onclick="openSection('home')">Назад</button>
+  </div>
+
+  <div id="lead" class="section">
+    <div class="card">
+      <h3>Оставить заявку</h3>
+      <input id="name" placeholder="Имя">
+      <input id="tg" placeholder="Ваш Telegram">
+      <input id="niche" placeholder="Ниша">
+      <input id="budget" placeholder="Бюджет">
+      <textarea id="comment" placeholder="Комментарий"></textarea>
+      <button class="btn" onclick="sendLead()">🚀 Получить трафик</button>
+    </div>
+    <button class="btn" onclick="openSection('home')">Назад</button>
+  </div>
+</div>
+
+<script>
+  const tg = window.Telegram?.WebApp;
+  if (tg) {
+    tg.ready();
+    tg.expand();
+  }
+
+  setTimeout(() => {
+    document.getElementById('splash').classList.add('hidden');
+  }, 2300);
+
+  function openSection(id){
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0,0);
+  }
+
+  function sendLead(){
+    const data = {
+      name: document.getElementById('name').value,
+      telegram: document.getElementById('tg').value,
+      niche: document.getElementById('niche').value,
+      budget: document.getElementById('budget').value,
+      comment: document.getElementById('comment').value
+    };
+
+    alert('Заявка отправлена. Напишите нам в Telegram для быстрого запуска.');
+
+    if (tg) {
+      tg.sendData(JSON.stringify(data));
+    }
+  }
+</script>
+
+</body>
+</html>
